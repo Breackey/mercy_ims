@@ -1,0 +1,188 @@
+{% extends 'hod_template/base_template.html' %}
+
+{% block page_title %}
+    Add Household
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+<section class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Add Household</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form role="form" method="POST" action="{% url 'add_household_save' %}">
+                        {% csrf_token %}
+
+                        
+                                {% comment %} Display Messages {% endcomment %}
+                                {% if messages %}
+                                <div class="form-group">
+                                <div class="col-12">
+                                    {% for message in messages %}
+                                    {% if message.tags == "error" %}
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% elif message.tags == "success" %}
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                </div>
+                                {% endif %}
+                            
+
+                        <div class="card-body">
+                            
+                            <div class="form-group">
+                                <label>County </label>
+                                <select class="form-control" name="county">
+                                    {% for county in counties %}
+                                        <option value="{{ county.county_id }}">{{ county.county_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Sub County </label>
+                                <select class="form-control" name="sub_county">
+                                    {% for sub_county in sub_counties %}
+                                        <option value="{{ sub_county.sub_countyid }}">{{ sub_county.sub_county_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Ward </label>
+                                <select class="form-control" name="ward">
+                                    {% for ward in wards %}
+                                        <option value="{{ ward.ward_id }}">{{ ward.ward_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Village </label>
+                                <select class="form-control" name="county">
+                                    {% for village in villages %}
+                                        <option value="{{ village.village_id }}">{{ village.village_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Household Name </label>
+                                <input type="text" class="form-control" name="first" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Household Size </label>
+                                <input type="text" class="form-control" name="first" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>GPS Coordinates </label>
+                                <input type="text" class="form-control" name="first" >
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Participant ID </label>
+                                <input type="text" class="form-control" name="first" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>First Name </label>
+                                <input type="text" class="form-control" name="first" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Middle Name </label>
+                                <input type="text" class="form-control" name="first" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Last Name </label>
+                                <input type="text" class="form-control" name="first" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Date of Birth </label>
+                                <input type="text" class="form-control" name="first" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Age </label>
+                                <input type="text" class="form-control" name="first" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Sex </label>
+                                <input type="text" class="form-control" name="first" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Group Membership </label>
+                                <input type="text" class="form-control" name="first" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>ID Number </label>
+                                <input type="text" class="form-control" name="first" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Phone Number </label>
+                                <input type="text" class="form-control" name="first" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Individual Type</label>
+                                <input type="text" class="form-control" name="first" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Registration Date </label>
+                                <input type="text" class="form-control" name="first" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Livelihood Status </label>
+                                <input type="text" class="form-control" name="first" >
+                            </div>
+
+                           
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Add Household</button>
+                        </div>
+                    </form>
+                    </div>
+                    <!-- /.card -->
+
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+      </section>
+
+  {% endblock main_content %}

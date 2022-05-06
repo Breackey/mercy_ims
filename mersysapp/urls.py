@@ -1,0 +1,76 @@
+from django.contrib import admin
+from django.urls import path, include
+from . import views
+from .import HodViews, StaffViews
+
+urlpatterns = [
+	path('', views.home, name="home"),
+	path('contact', views.contact, name="contact"),
+	path('login', views.loginUser, name="login"),
+	path('logout_user', views.logout_user, name="logout_user"),
+	path('registration', views.registration, name="registration"),
+	path('doLogin', views.doLogin, name="doLogin"),
+	path('doRegistration', views.doRegistration, name="doRegistration"),
+	
+	
+	# URL for Admin
+	path('admin_home/', HodViews.admin_home, name="admin_home"),
+	path('admin_profile/', HodViews.admin_profile, name="admin_profile"),
+	path('admin_profile_update/', HodViews.admin_profile_update, name="admin_profile_update"),
+	path('add_staff/', HodViews.add_staff, name="add_staff"),
+	path('add_staff_save/', HodViews.add_staff_save, name="add_staff_save"),
+	path('manage_staff/', HodViews.manage_staff, name="manage_staff"),
+	path('edit_staff/<staff_id>/', HodViews.edit_staff, name="edit_staff"),
+	path('edit_staff_save/', HodViews.edit_staff_save, name="edit_staff_save"),
+	path('delete_staff/<staff_id>/', HodViews.delete_staff, name="delete_staff"),
+	path('add_county/', HodViews.add_county, name="add_county"),
+	path('add_county_save/', HodViews.add_county_save, name="add_county_save"),
+	path('manage_county/', HodViews.manage_county, name="manage_county"),
+	path('edit_county/<county_id>/', HodViews.edit_county, name="edit_county"),
+	path('edit_county_save/', HodViews.edit_county_save, name="edit_county_save"),
+	path('delete_county/<county_id>/', HodViews.delete_county, name="delete_county"),
+	path('add_subcounty/', HodViews.add_subcounty, name="add_subcounty"),
+	path('add_subcounty_save/', HodViews.add_subcounty_save, name="add_subcounty_save"),
+	path('manage_subcounty/', HodViews.manage_subcounty, name="manage_subcounty"),
+	path('edit_subcounty/<subcounty_id>/', HodViews.edit_subcounty, name="edit_subcounty"),
+	path('edit_subcounty_save/', HodViews.edit_subcounty_save, name="edit_subcounty_save"),
+	path('delete_subcounty/<subcounty_id>/', HodViews.delete_subcounty, name="delete_subcounty"),
+	path('add_ward/', HodViews.add_ward, name="add_ward"),
+	path('add_ward_save/', HodViews.add_ward_save, name="add_ward_save"),
+	path('manage_ward/', HodViews.manage_ward, name="manage_ward"),
+	path('edit_ward/<ward_id>/', HodViews.edit_ward, name="edit_ward"),
+	path('edit_ward_save/', HodViews.edit_ward_save, name="edit_ward_save"),
+	path('delete_ward/<ward_id>/', HodViews.delete_ward, name="delete_ward"),
+	path('add_village/', HodViews.add_village, name="add_village"),
+	path('add_village_save/', HodViews.add_village_save, name="add_village_save"),
+	path('manage_village/', HodViews.manage_village, name="manage_village"),
+	path('edit_village/<village_id>/', HodViews.edit_village, name="edit_village"),
+	path('edit_village_save/', HodViews.edit_village_save, name="edit_village_save"),
+	path('delete_village/<village_id>/', HodViews.delete_village, name="delete_village"),
+	path('add_household/', HodViews.add_household, name="add_household"),
+	path('add_household_save/', HodViews.add_household_save, name="add_household_save"),
+	path('edit_household/<household_id>', HodViews.edit_household, name="edit_household"),
+	path('edit_household_save/', HodViews.edit_household_save, name="edit_household_save"),
+	path('manage_household/', HodViews.manage_household, name="manage_household"),
+	path('delete_household/<household_id>/', HodViews.delete_household, name="delete_household"),
+	path('add_participant/', HodViews.add_participant, name="add_participant"),
+	path('add_participant_save/', HodViews.add_participant_save, name="add_participant_save"),
+	path('manage_participant/', HodViews.manage_participant, name="manage_participant"),
+	path('edit_participant/<participant_id>/', HodViews.edit_participant, name="edit_participant"),
+	path('edit_participant_save/', HodViews.edit_participant_save, name="edit_participant_save"),
+	path('delete_participant/<participant_id>/', HodViews.delete_participant, name="delete_participant"),
+	path('add_groups/', HodViews.add_groups, name="add_groups"),
+	path('add_groups_save/', HodViews.add_groups_save, name="add_groups_save"),
+	path('manage_groups/', HodViews.manage_groups, name="manage_groups"),
+	path('edit_groups/<group_id>/', HodViews.edit_groups, name="edit_groups"),
+	path('edit_groups_save/', HodViews.edit_groups_save, name="edit_groups_save"),
+	path('delete_groups/<group_id>/', HodViews.delete_groups, name="delete_groups"),
+	path('check_email_exist/', HodViews.check_email_exist, name="check_email_exist"),
+	path('check_username_exist/', HodViews.check_username_exist, name="check_username_exist"),
+
+
+	 # URLS for Staff
+    path('staff_profile/', StaffViews.staff_profile, name="staff_profile"),
+    path('staff_profile_update/', StaffViews.staff_profile_update, name="staff_profile_update"),
+
+]
